@@ -7,6 +7,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 syntax on
@@ -73,3 +74,5 @@ map <S-k> 10k
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+" Close nerdtree and vim simultaneously.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
