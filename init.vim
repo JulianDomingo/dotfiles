@@ -1,5 +1,5 @@
 " Plugins using vim-plug vim package manager.
-call plug#begin('$HOME/.config/nvim/bundle')
+call plug#begin('$HOME/.config/nvim')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-airline/vim-airline'
@@ -10,12 +10,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 syntax on
 
 " Enable NERDTree on nvim startup.
 autocmd vimenter * NERDTree
 
-let g:deoplete#enable_at_startup = 1
 let g:airline_theme='onedark'
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -55,19 +56,30 @@ hi EndOfBuffer ctermfg=237 ctermbg=235
 " End of not knowing what this is
 
 filetype plugin on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
+" show existing tab with 8 spaces width
+set tabstop=8
+" when indenting with '>', use 8 spaces width
+set shiftwidth=8
+" On pressing tab, insert 8 spaces
 set expandtab
 set number
 set pastetoggle=<p>
 set noshowmode
 set mouse=a
+
 " Trims trailing and leading whitespace.
 cmap trim %s/\s\+$//
 
+" Highlight trailing spaces
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Traverse 10 lines in vim file with ease
 map <S-j> 10j
 map <S-k> 10k
 
