@@ -1,14 +1,22 @@
-# If you come from bash you might have to change  $PATH.
+# If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to  oh-my-zsh installation.
-export ZSH=/Users/julian/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH="/home/ANT.AMAZON.COM/jddoming/.oh-my-zsh"
+export ENV_ENHANCEMENTS=1
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
 ZSH_THEME="lambda"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -42,7 +50,10 @@ ZSH_THEME="lambda"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -52,7 +63,9 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,7 +73,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set  language environment
+# You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -84,44 +97,51 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias src="source $HOME/.zshrc"
+alias ozsh="vim $HOME/.zshrc"
 
-export JAVA_HOME=/Library/Java/Home
-export JAVA=
-export HADOOP_HOME=/usr/local/Cellar/hadoop/
-export HADOOP_MAPRED_HOME=$HADOOP_HOME # home to MapReduce module
-export HADOOP_COMMON_HOME=$HADOOP_HOME # home to common module
-export HADOOP_HDFS_HOME=$HADOOP_HOME # home to HDFS module
-export YARN_HOME=$HADOOP_HOME # home to Yarn module
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop # path to configurations
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin # add Hadoop binaries to PATH
-
-# For anaconda
-export PATH="/Users/julian/anaconda2/bin:$PATH"
-alias gpush="git push origin" 
-alias gs="git status"
-alias gdiff="git --no-pager diff --word-diff --color-words --staged"
-alias gds='gdiff --staged'
-alias gcom="git commit -m"
-alias glog="git --no-pager log --oneline --graph" 
-alias gb="git branch"
-alias ga="git add"
-alias kwm="nvim $HOME/.kwm/kwmrc" 
-alias src="source ~/.zshrc" 
-alias rkwm="brew services restart kwm"
+# Lab126
+alias swfos="$HOME/scripts/jdk_switch.sh"
+alias fbd="fastboot devices"
+alias adbd="adb devices"
+alias adbs="adb shell"
+alias tarunzip="tar -xzvf"
+alias tarzip="tar -zcvf"
 alias vim="nvim"
-alias ls="ls -G"
-alias envim="nvim ~/.config/nvim/init.vim"
-alias ozsh="nvim ~/.zshrc"
-alias rkhd="brew services restart khd"
-alias tf="source ~/tensorflow/bin/activate"
-alias exitf="deactivate"
 
-# P2 Instance
-# SSH into instance
-alias sshp2="ssh -i /Users/julian/.ssh/aws-key-fast-ai.pem ubuntu@ec2-34-213-124-88.us-west-2.compute.amazonaws.com"
-# Stop instance 
-alias p2stop="aws ec2 stop-instances --instance-ids i-0caa84e7b99dc31b1"
-# Start instance
-alias p2start="aws ec2 start-instances --instance-ids i-0caa84e7b99dc31b1"
-# Reboot instance
-alias p2reboot="aws ec2 reboot-instances --instance-ids i-0caa84e7b99dc31b1"
+# Git
+alias gs="git status"
+alias gcom="git commit -m"
+alias gcoms="git commit --signoff"
+alias gcomprev="git commit --edit -m'$(git log --format=%B --reverse HEAD..HEAD@{2})'"
+alias ga="git add"
+alias gpush="git push origin"
+alias gpushmain="git push fos HEAD:refs/for/fireos/main/nougat"
+alias gdiff="git --no-pager diff --word-diff --color-words --staged"
+
+# Octave App-ux Bringup Root Dir
+alias octave="cd $HOME/workspace/fireos6"
+
+# Test machine
+alias sshtest="ssh test@u6451064a0bdd5a3ab675"
+
+# Ease of use
+alias copy="xclip -sel clip"
+
+# Leetcode
+alias lc="leetcode"
+alias lclogin="leetcode user -l"
+alias lcl="lc list"
+alias lcomp="lcl -t"
+alias lct="lc test"
+alias lcs="lc submit"
+alias lcp="leetcode show $1 -gx -e nvim -l python"
+
+# FB Messenger
+alias fb="fb-messenger-cli"
+
+# VPN
+alias vpn="/opt/cisco/anyconnect/bin/vpnui"
+
+# nvim
+alias vimconf="vim $HOME/.config/nvim/init.vim"
