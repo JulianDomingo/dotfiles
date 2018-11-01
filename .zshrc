@@ -97,6 +97,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Contains all sensitive information.
+source $HOME/credentials.sh
+
 alias src="source $HOME/.zshrc"
 alias ozsh="vim $HOME/.zshrc"
 
@@ -116,11 +120,10 @@ alias gcoms="git commit --signoff"
 alias gcomprev="git commit --edit -m'$(git log --format=%B --reverse HEAD..HEAD@{2})'"
 alias ga="git add"
 alias gpush="git push origin"
-alias gpushmain="git push fos HEAD:refs/for/fireos/main/nougat"
+alias gpushmain=$fos6_mainline_push
+alias gpushmaindev="$fos6_maindev_push"
 alias gdiff="git --no-pager diff --word-diff --color-words --staged"
-
-# Octave App-ux Bringup Root Dir
-alias octave="cd $HOME/workspace/fireos6"
+alias gpull="git pull origin"
 
 # Test machine
 alias sshtest="ssh test@u6451064a0bdd5a3ab675"
@@ -128,14 +131,21 @@ alias sshtest="ssh test@u6451064a0bdd5a3ab675"
 # Ease of use
 alias copy="xclip -sel clip"
 
-# Leetcode
+# Leetcode / Prep
 alias lc="leetcode"
-alias lclogin="leetcode user -l"
+alias lclogin="printf '$leetcode_username\n$leetcode_password' | leetcode user -l"
 alias lcl="lc list"
 alias lcomp="lcl -t"
 alias lct="lc test"
 alias lcs="lc submit"
-alias lcp="leetcode show $1 -gx -e nvim -l python"
+alias lcp="leetcode show $1 -gx -e nvim -l python3"
+alias lcp27="leetcode show $1 -gx -e nvim -l python"
+alias lcsub="lc submission"
+#alias lcprint="echo "sed 's/\\n/\n/g'" | copy"
+alias lchome="cd $HOME/git/interview_prep"
+
+# EPI
+alias mvepi="cp $1 awk '{$HOME/git/interview_prep/epi/ch$2/}'"
 
 # FB Messenger
 alias fb="fb-messenger-cli"
@@ -145,3 +155,26 @@ alias vpn="/opt/cisco/anyconnect/bin/vpnui"
 
 # nvim
 alias vimconf="vim $HOME/.config/nvim/init.vim"
+
+# Go to FOS6 repo
+alias f6="cd $HOME/fos6"
+
+# App-UX
+alias hlc="cd $hlcont"
+
+# KATS
+alias testloc="echo /home/test/jddoming/testcases/test_echo.py | copy"
+alias testconf="echo rootDir=/home/test/jddoming/testcases/ | copy"
+alias reg="echo $devreg | copy"
+alias unreg="echo $devunreg | copy"
+alias ww="echo $ww | copy"
+
+# Gerrit
+alias cpick="python $HOME/scripts/cpicker.py"
+
+# Remove swap
+alias rmswap="rm $swap_area"
+
+# Shortcuts
+alias dirlen="ls . | wc -l"
+alias reclen="find . -type f | wc -l"
