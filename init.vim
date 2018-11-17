@@ -106,15 +106,40 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Non-python file
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+"set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Python
-"autocmd BufNewFile,BufRead *.py let g:python_recommended_style=0
-"autocmd BufNewFile,BufRead *.py set tags=tags;/
-"autocmd BufNewFile,BufRead *.py set noet
-"autocmd BufNewFile,BufRead *.py set tabstop=4
-"autocmd BufNewFile,BufRead *.py set shiftwidth=4
-"autocmd BufNewFile,BufRead *.py retab!
+autocmd BufNewFile,BufRead *.py let g:python_recommended_style=0
+autocmd BufNewFile,BufRead *.py set tags=tags;/
+autocmd BufNewFile,BufRead *.py set noet
+autocmd BufNewFile,BufRead *.py set tabstop=4
+autocmd BufNewFile,BufRead *.py set shiftwidth=4
+autocmd BufNewFile,BufRead *.py retab!
+
+" Markdown
+autocmd BufNewFile,BufRead *.md let g:python_recommended_style=0
+autocmd BufNewFile,BufRead *.md set tags=tags;/
+autocmd BufNewFile,BufRead *.md set noet
+autocmd BufNewFile,BufRead *.md set tabstop=4
+autocmd BufNewFile,BufRead *.md set shiftwidth=4
+autocmd BufNewFile,BufRead *.md retab!
+
+" Kernel
+autocmd BufNewFile,BufRead *.md set tags=tags;/
+autocmd BufNewFile,BufRead *.md set noet
+autocmd BufNewFile,BufRead *.md set tabstop=8
+autocmd BufNewFile,BufRead *.md set shiftwidth=8
+autocmd BufNewFile,BufRead *.md retab!
+
+" Errythang
+"let g:python_recommended_style=0
+"set noet
+"set tabstop=4
+"set shiftwidth=4
+"retab!
 
 "set number
 "set smartindent
+
+" CTAGS
+set tags=tags

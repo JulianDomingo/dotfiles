@@ -124,6 +124,7 @@ alias gpushmain=$fos6_mainline_push
 alias gpushmaindev="$fos6_maindev_push"
 alias gdiff="git --no-pager diff --word-diff --color-words --staged"
 alias gpull="git pull origin"
+alias gamend="git commit --amend"
 
 # Test machine
 alias sshtest="ssh test@u6451064a0bdd5a3ab675"
@@ -141,14 +142,18 @@ alias lcs="lc submit"
 alias lcp="leetcode show $1 -gx -e nvim -l python3"
 alias lcp27="leetcode show $1 -gx -e nvim -l python"
 alias lcsub="lc submission"
-#alias lcprint="echo "sed 's/\\n/\n/g'" | copy"
+alias lctnl="lc test $1 | echo sed 's/\\n/\n/g'"
 alias lchome="cd $HOME/git/interview_prep"
+alias goog="cd $HOME/git/interview_prep/companies/goog"
+alias fb="cd $HOME/git/interview_prep/companies/facebook"
+alias gprep="cd $HOME/git/interview_prep/random"
+alias algo="cd $HOME/git/interview_prep/fundamentals/specialized_algos"
+alias dcp="cd $HOME/git/interview_prep/dcp"
 
 # EPI
-alias mvepi="cp $1 awk '{$HOME/git/interview_prep/epi/ch$2/}'"
-
-# FB Messenger
-alias fb="fb-messenger-cli"
+alias epi="cd $HOME/git/EPIJudge/epi_judge_python"
+alias myepi="cd $HOME/git/interview_prep/epi/"
+alias p3="python3.6"
 
 # VPN
 alias vpn="/opt/cisco/anyconnect/bin/vpnui"
@@ -178,3 +183,12 @@ alias rmswap="rm $swap_area"
 # Shortcuts
 alias dirlen="ls . | wc -l"
 alias reclen="find . -type f | wc -l"
+
+# MTK
+alias mtkflash="sudo bash $HOME/mtk_flash_tool/flash_tool.sh"
+
+# Quick makes
+alias lkmake="mm lk USE_NINJA=force -j8 2>&1 | tee build.log"
+
+# Default neovim editor
+export RTV_EDITOR=usr/bin/nvim
