@@ -125,6 +125,8 @@ alias gpushmaindev="$fos6_maindev_push"
 alias gdiff="git --no-pager diff --word-diff --color-words --staged"
 alias gpull="git pull origin"
 alias gamend="git commit --amend"
+alias gr="git rebase -i HEAD~$1"
+alias grc="git rebase --continue"
 
 # Test machine
 alias sshtest="ssh test@u6451064a0bdd5a3ab675"
@@ -149,6 +151,7 @@ alias fb="cd $HOME/git/interview_prep/companies/facebook"
 alias gprep="cd $HOME/git/interview_prep/random"
 alias algo="cd $HOME/git/interview_prep/fundamentals/specialized_algos"
 alias dcp="cd $HOME/git/interview_prep/dcp"
+alias urgent="cd $HOME/git/interview_prep/random/11/leetcode/you_better_do_these"
 
 # EPI
 alias epi="cd $HOME/git/EPIJudge/epi_judge_python"
@@ -167,6 +170,9 @@ alias f6="cd $HOME/fos6"
 # App-UX
 alias hlc="cd $hlcont"
 
+# FOS6 Shortcuts
+alias lk="cd $HOME/fos6/bootable/bootloader/lk-mtk/mt8167/"
+alias kernel="cd /home/ANT.AMAZON.COM/jddoming/fos6/kernel/mediatek/mt8167/4.4"
 # KATS
 alias testloc="echo /home/test/jddoming/testcases/test_echo.py | copy"
 alias testconf="echo rootDir=/home/test/jddoming/testcases/ | copy"
