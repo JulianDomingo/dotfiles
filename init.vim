@@ -1,5 +1,4 @@
 " Plugins using vim-plug vim package manager.
-
 call plug#begin('$HOME/.config/nvim/bundle')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -9,7 +8,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
-Plug 'joshdick/onedark.vim'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 syntax on
@@ -19,6 +18,9 @@ autocmd vimenter * NERDTree
 
 let g:deoplete#enable_at_startup = 1
 let g:airline_theme='onedark'
+
+" Grip
+let vim_markdown_preview_github=1
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -56,45 +58,19 @@ hi GitGutterChangeDelete ctermbg=235 ctermfg=245
 hi EndOfBuffer ctermfg=237 ctermbg=235
 " End of not knowing what this is
 
-" Linux Kernel Coding Style
-set colorcolumn=81
-highlight ColorColumn ctermbg=Black ctermfg=DarkRed
-filetype plugin indent on
+filetype plugin on
 " show existing tab with 4 spaces width
-"set tabstop=8
-
-"set shiftwidth=8
-" Should actually be 8.
-"set tabstop=4
-"set shiftwidth=4
-"set expandtab
-
-"set tabstop=8
-"set shiftwidth=8
-":autocmd FileType py execute  ':silent! %s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
+set tabstop=4
 " when indenting with '>', use 4 spaces width
-"set shiftwidth=8
+set shiftwidth=4
 " On pressing tab, insert 4 spaces
-"set expandtab
+set expandtab
 set number
 set pastetoggle=<p>
 set noshowmode
 set mouse=a
-
-" View whitespace
-"nnoremap    <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
-nnoremap    <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
 " Trims trailing and leading whitespace.
 cmap trim %s/\s\+$//
-
-" Highlight trailing spaces
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 map <S-j> 10j
 map <S-k> 10k
@@ -105,41 +81,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Close nerdtree and vim simultaneously.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Non-python file
-"set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-
-" Python
-autocmd BufNewFile,BufRead *.py let g:python_recommended_style=0
-autocmd BufNewFile,BufRead *.py set tags=tags;/
-autocmd BufNewFile,BufRead *.py set noet
-autocmd BufNewFile,BufRead *.py set tabstop=4
-autocmd BufNewFile,BufRead *.py set shiftwidth=4
-autocmd BufNewFile,BufRead *.py retab!
-
-" Markdown
-autocmd BufNewFile,BufRead *.md let g:python_recommended_style=0
-autocmd BufNewFile,BufRead *.md set tags=tags;/
-autocmd BufNewFile,BufRead *.md set noet
-autocmd BufNewFile,BufRead *.md set tabstop=4
-autocmd BufNewFile,BufRead *.md set shiftwidth=4
-autocmd BufNewFile,BufRead *.md retab!
-
-" Kernel
-autocmd BufNewFile,BufRead *.md set tags=tags;/
-autocmd BufNewFile,BufRead *.md set noet
-autocmd BufNewFile,BufRead *.md set tabstop=8
-autocmd BufNewFile,BufRead *.md set shiftwidth=8
-autocmd BufNewFile,BufRead *.md retab!
-
-" Errythang
-"let g:python_recommended_style=0
-"set noet
-"set tabstop=4
-"set shiftwidth=4
-"retab!
-
-"set number
-"set smartindent
-
-" CTAGS
-set tags=tags
+" 80 column
+set textwidth=80
+set colorcolumn=+1
+highlight ColorColumn ctermbg=235 guibg=#2a303a
