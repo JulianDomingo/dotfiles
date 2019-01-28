@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Contains all sensitive information.
-source $HOME/credentials.sh
+source $HOME/scripts/credentials.sh
 
 alias src="source $HOME/.zshrc"
 alias ozsh="vim $HOME/.zshrc"
@@ -112,27 +112,35 @@ alias adbs="adb shell"
 alias tarunzip="tar -xzvf"
 alias tarzip="tar -zcvf"
 alias vim="nvim"
+alias sshtest="ssh test@u6451064a0bdd5a3ab675"
+alias gcoms="git commit --signoff"
+alias gpushmain=$fos6_mainline_push
+alias gpushmaindev="$fos6_maindev_push"
+alias gpushvsb="$vsb_push"
+alias vpn="/opt/cisco/anyconnect/bin/vpnui"
+alias lk="cd $lk"
+alias kernel="cd $kernel"
+alias dt="cd $dt"
+alias testloc="echo /home/test/jddoming/testcases/test_echo.py | copy"
+alias testconf="echo rootDir=/home/test/jddoming/testcases/ | copy"
+alias reg="echo $devreg | copy"
+alias unreg="echo $devunreg | copy"
+alias ww="echo $ww | copy"
+alias cpick="python $HOME/scripts/cpicker.py"
+alias rmswap="rm $swap_area"
+alias mtkflash="sudo bash $HOME/mtk_flash_tool/flash_tool.sh"
 
 # Git
 alias gs="git status"
 alias gcom="git commit -m"
-alias gcoms="git commit --signoff"
 alias gcomprev="git commit --edit -m'$(git log --format=%B --reverse HEAD..HEAD@{2})'"
 alias ga="git add"
-alias gpush="git push origin"
-alias gpushmain=$fos6_mainline_push
-alias gpushmaindev="$fos6_maindev_push"
+alias gpush="git push -u origin"
 alias gdiff="git --no-pager diff --word-diff --color-words --staged"
 alias gpull="git pull origin"
 alias gamend="git commit --amend"
-alias gr="git rebase -i HEAD~$1"
+alias gr="git rebase -i"
 alias grc="git rebase --continue"
-
-# Test machine
-alias sshtest="ssh test@u6451064a0bdd5a3ab675"
-
-# Ease of use
-alias copy="xclip -sel clip"
 
 # Leetcode / Prep
 alias lc="leetcode"
@@ -145,56 +153,17 @@ alias lcp="leetcode show $1 -gx -e nvim -l python3"
 alias lcp27="leetcode show $1 -gx -e nvim -l python"
 alias lcsub="lc submission"
 alias lctnl="lc test $1 | echo sed 's/\\n/\n/g'"
-alias lchome="cd $HOME/git/interview_prep"
-alias goog="cd $HOME/git/interview_prep/companies/goog"
-alias fb="cd $HOME/git/interview_prep/companies/facebook"
-alias gprep="cd $HOME/git/interview_prep/random"
-alias algo="cd $HOME/git/interview_prep/fundamentals/specialized_algos"
-alias dcp="cd $HOME/git/interview_prep/dcp"
-alias urgent="cd $HOME/git/interview_prep/random/11/leetcode/you_better_do_these"
-
-# EPI
 alias epi="cd $HOME/git/EPIJudge/epi_judge_python"
 alias myepi="cd $HOME/git/interview_prep/epi/"
 alias p3="python3.6"
 
-# VPN
-alias vpn="/opt/cisco/anyconnect/bin/vpnui"
-
-# nvim
+# Neovim
 alias vimconf="vim $HOME/.config/nvim/init.vim"
-
-# Go to FOS6 repo
-alias f6="cd $HOME/fos6"
-
-# App-UX
-alias hlc="cd $hlcont"
-
-# FOS6 Shortcuts
-alias lk="cd $HOME/fos6/bootable/bootloader/lk-mtk/mt8167/"
-alias kernel="cd /home/ANT.AMAZON.COM/jddoming/fos6/kernel/mediatek/mt8167/4.4"
-# KATS
-alias testloc="echo /home/test/jddoming/testcases/test_echo.py | copy"
-alias testconf="echo rootDir=/home/test/jddoming/testcases/ | copy"
-alias reg="echo $devreg | copy"
-alias unreg="echo $devunreg | copy"
-alias ww="echo $ww | copy"
-
-# Gerrit
-alias cpick="python $HOME/scripts/cpicker.py"
-
-# Remove swap
-alias rmswap="rm $swap_area"
 
 # Shortcuts
 alias dirlen="ls . | wc -l"
 alias reclen="find . -type f | wc -l"
-
-# MTK
-alias mtkflash="sudo bash $HOME/mtk_flash_tool/flash_tool.sh"
-
-# Quick makes
-alias lkmake="mm lk USE_NINJA=force -j8 2>&1 | tee build.log"
+alias copy="xclip -sel clip"
 
 # Default neovim editor
-export RTV_EDITOR=usr/bin/nvim
+export RTV_EDITOR=/usr/bin/nvim
