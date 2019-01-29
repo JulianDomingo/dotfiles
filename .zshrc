@@ -175,4 +175,4 @@ export RTV_EDITOR=/usr/bin/nvim
 
 ## The next line enables shell command completion for gcloud.
 #if [ -f '/home/julian/git/ml_stuff/cs231n/setup/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/julian/git/ml_stuff/cs231n/setup/google-cloud-sdk/completion.zsh.inc'; fi
-alias cvssh="gcloud compute ssh 'cs231n'"
+alias cvssh="gcloud compute ssh 'cv'"
