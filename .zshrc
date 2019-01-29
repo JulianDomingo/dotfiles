@@ -164,6 +164,15 @@ alias vimconf="vim $HOME/.config/nvim/init.vim"
 alias dirlen="ls . | wc -l"
 alias reclen="find . -type f | wc -l"
 alias copy="xclip -sel clip"
+alias cdiff="colordiff"
 
 # Default neovim editor
 export RTV_EDITOR=/usr/bin/nvim
+
+# GCP
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/julian/git/ml_stuff/cs231n/setup/google-cloud-sdk/path.zsh.inc' ]; then . '/home/julian/git/ml_stuff/cs231n/setup/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/julian/git/ml_stuff/cs231n/setup/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/julian/git/ml_stuff/cs231n/setup/google-cloud-sdk/completion.zsh.inc'; fi
+alias cvssh="gcloud compute --project 'cs231n-230103' ssh --zone 'us-central1-b' 'cs231-vm'"
