@@ -165,6 +165,7 @@ alias dirlen="ls . | wc -l"
 alias reclen="find . -type f | wc -l"
 alias copy="xclip -sel clip"
 alias cdiff="colordiff"
+alias ml="cd $HOME/git/ml_stuff"
 
 # Default neovim editor
 export RTV_EDITOR=/usr/bin/nvim
