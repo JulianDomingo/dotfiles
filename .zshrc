@@ -170,7 +170,7 @@ alias cdiff="colordiff"
 export RTV_EDITOR=/usr/bin/nvim
 
 # GCP
-alias cvssh="gcloud compute ssh 'cs231n-instance' --project='cs231n-230103' --zone='us-west1-b' --ssh-flag='-L' --ssh-flag='2222:localhost:8888'"
+alias cvssh="gcloud compute ssh 'cs231n-cv' --project='cs231n-230103' --zone='us-west1-b' --ssh-flag='-L' --ssh-flag='2222:localhost:8888'"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/julian/google-cloud-sdk/path.zsh.inc' ]; then . '/home/julian/google-cloud-sdk/path.zsh.inc'; fi
